@@ -1,2 +1,41 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$my-blue: #3498db;
+$my-orange: #f0ad4e;
+$font-color: #dfdfdf;
+$white: #fff;
+$black: #000;
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+$font-stack: Lato, Helvetica, sans-serif;
+
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+.navbar {
+  background-color: $my-blue;
+  border: 0;
+}
+
+/*buttons*/
+.btn-default {
+  color: $my-orange;
+  // background-color: $my-blue;
+  // font-family: 'Akrobat-ExtraBold';
+  font-size: 1rem;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+}
+
+.btn {
+  border: 2px solid #01787e;
+  border-radius: 5px;
+  padding: 7px 30px;
+}
+
+button {
+  margin-top: 20px;
+}
