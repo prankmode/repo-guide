@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    production: 'https://guarded-forest-23064.herokuapp.com',
+    development: 'http://localhost:4741'
   }
 }
 
