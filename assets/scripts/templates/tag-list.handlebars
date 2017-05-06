@@ -1,0 +1,10 @@
+{{#each tags as |tag|}}
+
+  <!-- Developers, why are we using data-id and not just id? -->
+  <ul data-id="{{tag.id}}">
+    <li>Name: {{tag.name}}</li>
+
+    <li><button id="delete-tag" class="btn btn-default" tagid="{{tag.id}}">Remove this tag</button></li>
+  </ul>
+
+{{/each}}

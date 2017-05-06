@@ -12,7 +12,9 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (response) => {
   // store the user object
+  console.log('auth:ui:signInSuccess')
   store.user = response.user
+  console.log('auth:ui:signInSuccess, store.user is ', store.user)
   // gameUi.toggleSignInButton()
   // gameUi.toggleChangePasswordButton()
   // gameUi.toggleStatsButton()
@@ -20,6 +22,7 @@ const signInSuccess = (response) => {
 }
 
 const signInFailure = (error) => {
+  console.log('auth:ui:signInFailure')
   console.error(error)
   store.user = null
 }
@@ -33,13 +36,6 @@ const signOutSuccess = (response) => {
   store.user = null
 }
 
-const isAnyoneLoggedIn = () => {
-  if (store.user) {
-    return true
-  } else {
-    return false
-  }
-}
 
 module.exports = {
   signOutSuccess,
@@ -47,6 +43,5 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
-  signInFailure,
-  isAnyoneLoggedIn
+  signInFailure
 }

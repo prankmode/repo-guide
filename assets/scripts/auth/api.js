@@ -43,9 +43,18 @@ const changePassword = (data) => {
   })
 }
 
+const isAnyoneLoggedIn = () => {
+  if (store.user) {
+    return true
+  } else {
+    return false
+  }
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  isAnyoneLoggedIn
 }

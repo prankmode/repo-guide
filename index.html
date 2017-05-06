@@ -134,6 +134,32 @@
   <!-- /.modal -->
 
 
+  <button type="button" id="show-repos" class="btn btn-lg">show repos</button>
+  <button type="button" id="show-tags" class="btn btn-lg">show tags</button>
+
+  <div id="create-repo-form">
+    <fieldset>
+      <form id="create-repo">
+        <input type="text" name="repo[name]" placeholder="<repo-name>">
+        <input type="test" name="repo[full_url]" placeholder="<url>">
+        <button type="submit" name="submit" class="btn">Create repo</button>
+      </form>
+    </fieldset>
+  </div>
+
+  <div id="create-tag-form">
+    <fieldset>
+      <form id="create-tag">
+        <input type="text" name="tag[name]" placeholder="<repo-name>">
+        <button type="submit" name="submit" class="btn">Create tag</button>
+      </form>
+    </fieldset>
+  </div>
+
+
+  <div id="repo-list"></div>
+  <div id="tag-list"><div>
+
 
 </body>
 
