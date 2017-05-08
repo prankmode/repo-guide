@@ -44,6 +44,13 @@ const populateReposSuccess = (response) => {
 const populateReposFailure = (response) => {
   console.log('repos:ui:populateReposFailure')
 }
+const addTagToRepoSuccess = (response) => {
+  console.log('repos:ui:addTagToRepoSuccess')
+}
+const addTagToRepoFailure = (response) => {
+  console.log('repos:ui:addTagToRepoFailure')
+}
+
 
 module.exports = {
   getReposSuccess,
@@ -55,5 +62,7 @@ module.exports = {
   createRepoSuccess,
   createRepoFailure,
   populateReposSuccess,
-  populateReposFailure
+  populateReposFailure,
+  addTagToRepoSuccess,
+  addTagToRepoFailure
 }

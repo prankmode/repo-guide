@@ -81,11 +81,29 @@ const populateRepos = (data) => {
   })
 }
 
+const addTagToRepo = (repoid, data) => {
+  // debug
+  console.log('repo:api:addTagToRepo:')
+
+  return $.ajax({
+    url: config.apiOrigin + '/repos/' + repoid,
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+
+
+
 module.exports = {
   getRepos,
   getOneRepo,
   deleteRepo,
   updateRepo,
   createRepo,
-  populateRepos
+  populateRepos,
+  addTagToRepo
 }

@@ -58,10 +58,26 @@ const onPopulateRepos = function (event) {
     .catch(ui.populateReposFailure)
 }
 
+const onAddTagToRepo = function (event) {
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    guideUi.showAlert('You must be logged in')
+    return
+  }
+  event.preventDefault()
+  console.log('repos:events:onAddTagToRepo')
+  const repoid = $(this).attr('repoid')
+  const data = getFormFields(this)
+  console.log(data)
+  repoApi.addTagToRepo(repoid, data)
+    .then(ui.addTagToRepoSuccess)
+    .catch(ui.addTagToRepoFailure)
+}
+
 const addHandlers = () => {
   $('#all-repos').on('click', onShowRepos)
   $('#create-repo').on('submit', onCreateRepo)
-  $('.repo-or-tag-list').on('click', 'button', onDeleteRepo)
+  $('.repo-or-tag-list').on('click', '#delete-repo', onDeleteRepo)
+  $('.repo-or-tag-list').on('submit', '#add-tag-to-repo', onAddTagToRepo)
   $('#populate').on('click', onPopulateRepos)
 }
 

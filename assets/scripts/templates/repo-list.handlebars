@@ -1,30 +1,8 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
 
-    <div class="panel-heading" role="tab" id="header-add-repo">
-      <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#create-repo-form" aria-expanded="false" aria-controls="create-repo-form">
-            <i class="glyphicon glyphicon-plus-sign"></i>   Add new repo
-          </a>
-        </h4>
-    </div>
-
-    <div id="create-repo-form" class="panel-collapse collapse" role="tabpanel" aria-labelledby="header-add-repo">
-      <div class="panel-body">
-        <fieldset>
-          <form id="create-repo">
-            <input type="text" name="repo[name]" placeholder="<repo-name>">
-            <input type="test" name="repo[full_url]" placeholder="<url>">
-            <button type="submit" name="submit" class="btn">Create repo</button>
-          </form>
-        </fieldset>
-      </div>
-    </div>
-
-
 
     {{#each repos as |repo|}}
-
       <!-- first generate the header which contains the repo name -->
 
       <div class="panel-heading" role="tab" id="header-{{repo.id}}">
@@ -56,11 +34,67 @@
             {{/each}}
           {{/if}}
 
-          <button id="delete-repo" class="btn btn-default" repoid="{{repo.id}}">Remove this repo</button>
+
+
+
+
+
+
+          <div class="panel-group" id="nested">
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+         <a data-toggle="collapse" data-parent="#nested" href="#nested-update-{{repo.id}}">
+         update repo
+         </a>
+      </h4>
+              </div>
+              <!--/.panel-heading -->
+              <div id="nested-update-{{repo.id}}" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <fieldset>
+                    <form id="add-tag-to-repo" repoid="{{repo.id}}">
+                      <input type="text" name="tag[name]" placeholder="<tag-name>">
+                      <button type="submit" name="submit" class="btn">Add tag</button>
+                    </form>
+                  </fieldset>
+
+                </div>
+                <!--/.panel-body -->
+              </div>
+              <!--/.panel-collapse -->
+            </div>
+            <!-- /.panel -->
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+         <a class="collapsed" data-toggle="collapse" data-parent="#nested" href="#nested-remove-{{repo.id}}">
+         remove repo
+         </a>
+      </h4>
+              </div>
+              <!--/.panel-heading -->
+              <div id="nested-remove-{{repo.id}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                  Really?
+                </div>
+                <!--/.panel-body -->
+              </div>
+              <!--/.panel-collapse -->
+            </div>
+            <!-- /.panel -->
+
+
+          </div>
+          <!-- /.panel-group -->
+
+          <!-- <button id="delete-repo" class="btn btn-default" repoid="{{repo.id}}">Remove this repo</button> -->
 
         </div>
       </div>
 
     {{/each}}
+    </div>
   </div>
-</div>
