@@ -16,11 +16,13 @@ require('./example')
 const authEvents = require('./auth/events.js')
 const repoEvents = require('./repos/events.js')
 const tagEvents = require('./tags/events.js')
+const guideEvents = require('./guide/events.js')
 
 // On document ready
 $(() => {
   authEvents.addHandlers()
   repoEvents.addHandlers()
   tagEvents.addHandlers()
+  guideEvents.addHandlers()
 
 })

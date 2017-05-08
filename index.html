@@ -16,36 +16,20 @@
 
 <body class="container-fluid">
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand active" href="#">Repo Guide</a>
-      </div>
-
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><button type="button" id="all-repos-button" class="btn btn-default">Repositories</button></li>
-          <li><button type="button" id="all-tags-button" class="btn btn-default">Tags</button></li>
-          <li><button type="button" id="Favorites" class="btn btn-default">Favorites</button></li>
-        </ul>
-
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><button type="button" id="sign-in-button" class="btn btn-default" data-toggle="modal" data-target="#sign-in-modal">Sign in</button></li>
-          <li><button type="button" id="sign-up-button" class="btn btn-default" data-toggle="modal" data-target="#sign-up-modal">Sign up</button></li>
-          <li><button type="button" id="sign-out-button" class="btn btn-default">Sign out</button></li>
-          <li><button type="button" id="change-password-button" class="btn btn-default" data-toggle="modal" data-target="#change-password-modal">Change Password</button></li>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
+  <div class="navbar">
+    <div class="btn-group">
+      <h3>Repo Guide</h3>
     </div>
-  </nav>
+    <div class="btn-group pull-right">
+      <div class="pull-right">
+        <button type="button" id="hi-there-button" class="btn btn-lg btn-warning hidden">Hi, you!</button>
+        <button type="button" id="sign-in-button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#sign-in-modal">Sign in</button>
+        <button type="button" id="sign-up-button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#sign-up-modal">Sign up</button>
+        <button type="button" id="sign-out-button" class="btn btn-lg btn-primary hidden">Sign out</button>
+        <button type="button" id="change-password-button" class="btn btn-lg btn-primary hidden" data-toggle="modal" data-target="#change-password-modal">Change Password</button>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -68,9 +52,6 @@
           </fieldset>
         </div>
         <!-- sign-up-form -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
       </div>
       <!-- modal-content -->
     </div>
@@ -96,9 +77,6 @@
             </form>
           </fieldset>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
       </div>
       <!-- /.modal-content -->
     </div>
@@ -123,9 +101,6 @@
             </form>
           </fieldset>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
       </div>
       <!-- /.modal-content -->
     </div>
@@ -133,33 +108,90 @@
   </div>
   <!-- /.modal -->
 
+  <!--  Modal : Create a new Repo-->
+  <div class="modal fade" id="create-repo-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add a repo</h4>
+        </div>
+        <div id="create-repo-form">
+          <fieldset>
+            <form id="create-repo">
+              <input type="text" name="repo[name]" placeholder="<repo-name>">
+              <input type="test" name="repo[full_url]" placeholder="<url>">
+              <button type="submit" name="submit" class="btn">Create repo</button>
+            </form>
+          </fieldset>
+        </div>
+        <!-- create-repo-form -->
+      </div>
+      <!-- modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
 
-  <button type="button" id="show-repos" class="btn btn-lg">show repos</button>
-  <button type="button" id="show-tags" class="btn btn-lg">show tags</button>
 
-  <div id="create-repo-form">
-    <fieldset>
-      <form id="create-repo">
-        <input type="text" name="repo[name]" placeholder="<repo-name>">
-        <input type="test" name="repo[full_url]" placeholder="<url>">
-        <button type="submit" name="submit" class="btn">Create repo</button>
-      </form>
-    </fieldset>
+    <!--  Modal : Create a new Tag-->
+    <div class="modal fade" id="create-tag-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add a repo</h4>
+          </div>
+          <div id="create-tag-form">
+            <fieldset>
+              <form id="create-tag">
+                <input type="text" name="tag[name]" placeholder="<tag-name>">
+                <button type="submit" name="submit" class="btn">Create tag</button>
+              </form>
+            </fieldset>
+          </div>
+          <!-- create-tag-form -->
+        </div>
+        <!-- modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+  <div class="container">
+    <div class="jumbotron header-text">
+      <h1>Guide to Your Repositories</h1>
+      <p>'cause you still haven't found what you're looking for</p>
+    </div>
   </div>
 
-  <div id="create-tag-form">
-    <fieldset>
-      <form id="create-tag">
-        <input type="text" name="tag[name]" placeholder="<repo-name>">
-        <button type="submit" name="submit" class="btn">Create tag</button>
-      </form>
-    </fieldset>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li><a href="#" id="all-repos">Repositories</a></li>
+          <li>
+            <a href="#" id="all-tags">
+              <i class="glyphicon glyphicon-tags"></i> Tags</a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#create-repo-modal" id="create-repo">
+              <i class="glyphicon glyphicon-plus"></i> Add Repository</a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#create-tag-modal" id="create-tag">
+              <i class="glyphicon glyphicon-plus"></i> Add Tag</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-md-10 main">
+        <div id="repo-list" class="repo-list"></div>
+        <div id="tag-list"></div>
+      </div>
+    </div>
   </div>
-
-
-  <div id="repo-list"></div>
-  <div id="tag-list"><div>
-
 
 </body>
 

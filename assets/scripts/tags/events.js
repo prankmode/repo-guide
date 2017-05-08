@@ -15,10 +15,10 @@ const onDeleteTag = function (event) {
 }
 
 const onShowTags = function (event) {
-  // if (!authApi.isAnyoneLoggedIn(0)) {
-  //   ui.showtagsFailure()
-  //   return
-  // }
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    ui.showtagsFailure()
+    return
+  }
   event.preventDefault()
   console.log('tags:events:onShowTags')
 
@@ -45,11 +45,10 @@ const onCreateTag = function (event) {
 }
 
 const addHandlers = () => {
-  $('#show-tags').on('click', onShowTags)
-  $('#all-tags-button').on('click', onShowTags)
   $('#create-tag').on('submit', onCreateTag)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onShowTags
 }

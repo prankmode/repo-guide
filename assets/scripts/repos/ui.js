@@ -1,10 +1,12 @@
 const showReposTemplate = require('../templates/repo-list.handlebars');
-
+const repoEvents = require ('./events.js')
 
 const getReposSuccess = (data) => {
   console.log('repos:ui:getReposSuccess')
   let showReposHtml = showReposTemplate({ repos: data.repos });
-  $('#repo-list').replaceWith(showReposHtml);
+  $('#repo-list').html(showReposHtml);
+  $('#create-repo').on('submit', repoEvents.onCreateRepo)
+  $('#delete-repo').on('click', repoEvents.onDeleteRepo)
 }
 
 const getReposFailure = (response) => {

@@ -1,10 +1,36 @@
-{{#each tags as |tag|}}
+<div class="col-md-4" id="tag-list">
 
-  <!-- Developers, why are we using data-id and not just id? -->
-  <ul data-id="{{tag.id}}">
-    <li>Name: {{tag.name}}</li>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
 
-    <li><button id="delete-tag" class="btn btn-default" tagid="{{tag.id}}">Remove this tag</button></li>
-  </ul>
+      {{#each tags as |tag|}}
 
-{{/each}}
+        <!-- first generate the header which contains the tag name -->
+
+        <div class="panel-heading" role="tab" id="header-{{tag.id}}">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#tag-{{tag.id}}" aria-expanded="false" aria-controls="tag-{{tag.id}}">
+              <i class="glyphicon glyphicon-tag"></i>   {{tag.name}}
+            </a>
+          </h4>
+        </div>
+
+        <!-- now the content -->
+
+        <div id="tag-{{tag.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="header-{{tag.id}}">
+          <div class="panel-body">
+
+            {{#if tag.repos}}
+              <p>has repos</p>
+              <p>{{tag.repos}}</p>
+            {{/if}}
+
+            <button id="delete-tag" class="btn btn-default" tagid="{{tag.id}}">Remove this tag</button>
+
+          </div>
+        </div>
+
+      {{/each}}
+    </div>
+  </div>
+</div>

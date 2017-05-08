@@ -2,6 +2,7 @@
 const repoApi = require('./api.js')
 const authApi = require('../auth/api.js')
 const ui = require('./ui.js')
+const guideUi = require('../guide/ui.js')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onDeleteRepo = function (event) {
@@ -15,10 +16,10 @@ const onDeleteRepo = function (event) {
 }
 
 const onShowRepos = function (event) {
-  // if (!authApi.isAnyoneLoggedIn(0)) {
-  //   ui.showReposFailure()
-  //   return
-  // }
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    guideUi.showAlert('You must be signed in')
+    return
+  }
   event.preventDefault()
   console.log('repos:events:onShowRepos')
 
@@ -31,13 +32,14 @@ const onShowRepos = function (event) {
 }
 
 const onCreateRepo = function (event) {
-  // if (!authApi.isAnyoneLoggedIn(0)) {
-  //   ui.showReposFailure()
-  //   return
-  // }
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    guideUi.showAlert('You must be logged in')
+    return
+  }
   event.preventDefault()
   console.log('repos:events:onCreateRepos')
   const data = getFormFields(this)
+  console.log('repos:event:onCreateRepos, data is ', data)
 
   repoApi.createRepo(data)
     .then(ui.createReposSuccess)
@@ -45,11 +47,13 @@ const onCreateRepo = function (event) {
 }
 
 const addHandlers = () => {
-  $('#show-repos').on('click', onShowRepos)
-  $('#all-repos-button').on('click', onShowRepos)
+  $('#all-repos').on('click', onShowRepos)
   $('#create-repo').on('submit', onCreateRepo)
+  $('.repo-list').on('click', 'button', onDeleteRepo)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onShowRepos,
+  onCreateRepo
 }
