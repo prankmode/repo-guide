@@ -46,10 +46,23 @@ const onCreateRepo = function (event) {
     .catch(ui.createReposFailure)
 }
 
+const onPopulateRepos = function (event) {
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    guideUi.showAlert('You must be logged in')
+    return
+  }
+  event.preventDefault()
+  console.log('repos:events:onPopulateRepos')
+  repoApi.populateRepos()
+    .then(ui.populateReposSuccess)
+    .catch(ui.populateReposFailure)
+}
+
 const addHandlers = () => {
   $('#all-repos').on('click', onShowRepos)
   $('#create-repo').on('submit', onCreateRepo)
-  $('.repo-list').on('click', 'button', onDeleteRepo)
+  $('.repo-or-tag-list').on('click', 'button', onDeleteRepo)
+  $('#populate').on('click', onPopulateRepos)
 }
 
 module.exports = {

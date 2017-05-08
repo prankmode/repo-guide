@@ -58,6 +58,7 @@ const updateRepo = () => {
 const createRepo = (data) => {
   // debug
   console.log('repo:api:createRepo: data is ', data)
+  console.log('token is ', store.user)
 
   return $.ajax({
     url: config.apiOrigin + '/repos',
@@ -69,10 +70,22 @@ const createRepo = (data) => {
   })
 }
 
+const populateRepos = (data) => {
+  console.log('repo:api:populateRepos')
+  return $.ajax({
+    url: config.apiOrigin + '/repos/populate',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getRepos,
   getOneRepo,
   deleteRepo,
   updateRepo,
-  createRepo
+  createRepo,
+  populateRepos
 }
