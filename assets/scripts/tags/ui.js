@@ -3,7 +3,7 @@ const showTagsTemplate = require('../templates/tag-list.handlebars')
 const getTagsSuccess = (data) => {
   console.log('tags:ui:getTagsSuccess')
   let showTagsHtml = showTagsTemplate({ tags: data.tags })
-  $('#tag-list').replaceWith(showTagsHtml)
+  $('#repo-or-tag-list').html(showTagsHtml)
 }
 
 const getTagsFailure = (response) => {

@@ -1,21 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-
 $my-blue: #3498db;
 $my-orange: #ffbb33;
 $font-color: #dfdfdf;
 $white: #fff;
 $black: #000;
-
-
-
-$braspberry: #300018;      // dark purple
-$peace-and-goodwill: #5A3D31;  // chocolate
+$braspberry: #300018;
+// dark purple
+$peace-and-goodwill: #5A3D31;
+// chocolate
 $olives: #837B47; // green olive
-$gardens: #ADB85F;  // lighter green
-$reflection: #E5EDB8;  //light green
-
-
+$gardens: #ADB85F;
+// lighter green
+$reflection: #E5EDB8;
+//light green
 @import url(https://fonts.googleapis.com/css?family=Lato);
 $font-stack: Lato, Helvetica, sans-serif;
 
@@ -27,18 +25,22 @@ body {
   background-color: $braspberry;
 }
 
-/*buttons*/
-// .btn-default {
-//   color: $my-orange;
-//   text-transform: lowercase;
-//   letter-spacing: 2px;
-// }
+h3 {
+  color: $reflection;
+}
 
 .btn {
-  border: 2px solid #01787e;
+  border: 2px solid $peace-and-goodwill;
   border-radius: 5px;
   padding: 7px 30px;
 }
+
+.btn-primary {
+  background-color: $reflection;
+  color: black;
+}
+
+
 
 button {
   margin-top: 20px;
@@ -48,31 +50,31 @@ button {
   background-color: $gardens;
 }
 
-#repo-list {
-  min-height: 500px;
-}
-
-#tag-list {
-  min-height: 500px;
-}
-
 form {
   margin: 30px;
 }
-
-/* Sidebar navigation */
+// Sidebar navigation
 .nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
+  margin-right: -21px;
+  // 20px padding + 1px border
   margin-bottom: 20px;
   margin-left: -20px;
+
 }
+
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+    color: $reflection;
 }
+
 .nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
+.nav-sidebar > .active > a:focus,
+.nav-sidebar > .active > a:hover {
   color: #fff;
   background-color: #428bca;
+}
+
+.repo-or-tag-list {
+  background-color: $reflection;
 }

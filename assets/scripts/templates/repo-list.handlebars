@@ -1,18 +1,16 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
 
-
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-
-      <div class="panel-heading" role="tab" id="header-add-repo">
-        <h4 class="panel-title">
+    <div class="panel-heading" role="tab" id="header-add-repo">
+      <h4 class="panel-title">
           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#create-repo-form" aria-expanded="false" aria-controls="create-repo-form">
             <i class="glyphicon glyphicon-plus-sign"></i>   Add new repo
           </a>
         </h4>
-      </div>
+    </div>
 
-      <div id="create-repo-form" class="panel-collapse collapse" role="tabpanel"  aria-labelledby="header-add-repo">
-        <div class="panel-body">
+    <div id="create-repo-form" class="panel-collapse collapse" role="tabpanel" aria-labelledby="header-add-repo">
+      <div class="panel-body">
         <fieldset>
           <form id="create-repo">
             <input type="text" name="repo[name]" placeholder="<repo-name>">
@@ -25,41 +23,44 @@
 
 
 
-      {{#each repos as |repo|}}
+    {{#each repos as |repo|}}
 
-        <!-- first generate the header which contains the repo name -->
+      <!-- first generate the header which contains the repo name -->
 
-        <div class="panel-heading" role="tab" id="header-{{repo.id}}">
-          <h4 class="panel-title">
+      <div class="panel-heading" role="tab" id="header-{{repo.id}}">
+        <h4 class="panel-title">
             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#repo-{{repo.id}}" aria-expanded="false" aria-controls="repo-{{repo.id}}">
               <i class="glyphicon glyphicon-plus-sign"></i>   {{repo.name}}
             </a>
           </h4>
+      </div>
+
+      <!-- now the content -->
+
+      <div id="repo-{{repo.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="header-{{repo.id}}">
+        <div class="panel-body">
+          <!-- description -->
+          {{#if repo.description}}
+            <p>{{repo.description}}</p>
+          {{/if}}
+
+          <!-- URL -->
+          {{#if repo.full_url}}
+            <p><a href= {{repo.full_url}}>{{repo.full_url}}</a></p>
+          {{/if}}
+
+          {{#if repo.tags}}
+            <p>Tags: </p>
+            {{#each repo.tags as |tag|}}
+              <p>{{tag.name}}</p>
+            {{/each}}
+          {{/if}}
+
+          <button id="delete-repo" class="btn btn-default" repoid="{{repo.id}}">Remove this repo</button>
+
         </div>
+      </div>
 
-        <!-- now the content -->
-
-        <div id="repo-{{repo.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="header-{{repo.id}}">
-          <div class="panel-body">
-            <!-- description -->
-            {{#if repo.description}}
-              <p>{{repo.description}}</p>
-            {{/if}}
-
-            <!-- URL -->
-            {{#if repo.full_url}}
-              <p><a href= {{repo.full_url}}>{{repo.full_url}}</a></p>
-            {{/if}}
-
-            {{#if repo.tags}}
-              <p>{{repo.tags}}</p>
-            {{/if}}
-
-            <button id="delete-repo" class="btn btn-default" repoid="{{repo.id}}">Remove this repo</button>
-
-          </div>
-        </div>
-
-      {{/each}}
-    </div>
+    {{/each}}
   </div>
+</div>
