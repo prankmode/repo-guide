@@ -9,7 +9,7 @@ const signUpSuccess = (response) => {
 
 const signUpFailure = (error) => {
   console.error(error)
-  showAlert("cannot sign up")
+  guideUi.showAlert('cannot sign up')
 }
 
 const signInSuccess = (response) => {
@@ -27,7 +27,7 @@ const signInSuccess = (response) => {
 const signInFailure = (error) => {
   console.log('auth:ui:signInFailure')
   console.error(error)
-  guideUi.showAlert("sign in failed")
+  guideUi.showAlert('sign in failed')
   store.user = null
 }
 
@@ -43,7 +43,6 @@ const signOutSuccess = (response) => {
   guideUi.toggleChangePasswordButton()
   guideUi.toggleSignUpButton()
   guideUi.hideHi()
-
 }
 
 module.exports = {
