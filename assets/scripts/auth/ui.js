@@ -38,6 +38,12 @@ const signOutFailure = (error) => {
 const signOutSuccess = (response) => {
   // clear store.user
   store.user = null
+  guideUi.toggleSignInButton()
+  guideUi.toggleSignOutButton()
+  guideUi.toggleChangePasswordButton()
+  guideUi.toggleSignUpButton()
+  guideUi.hideHi()
+
 }
 
 module.exports = {
