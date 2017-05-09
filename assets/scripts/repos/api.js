@@ -42,19 +42,6 @@ const deleteRepo = (repoid) => {
   })
 }
 
-const updateRepo = () => {
-  // debug
-  console.log('repo:api:updateRepo:')
-
-  return $.ajax({
-    url: config.apiOrigin + '/repos',
-    method: 'PATCH',
-    headers: {
-      'Authorization': 'Token token=' + store.user.token
-    }
-  })
-}
-
 const createRepo = (data) => {
   // debug
   console.log('repo:api:createRepo: data is ', data)
@@ -81,10 +68,9 @@ const populateRepos = (data) => {
   })
 }
 
-const addTagToRepo = (repoid, data) => {
+const updateRepo = (repoid, data) => {
   // debug
-  console.log('repo:api:addTagToRepo:')
-
+  console.log('repo:api:updateRepo:')
   return $.ajax({
     url: config.apiOrigin + '/repos/' + repoid,
     method: 'PATCH',
@@ -95,15 +81,11 @@ const addTagToRepo = (repoid, data) => {
   })
 }
 
-
-
-
 module.exports = {
   getRepos,
   getOneRepo,
   deleteRepo,
   updateRepo,
   createRepo,
-  populateRepos,
-  addTagToRepo
+  populateRepos
 }

@@ -28,35 +28,33 @@
           {{/if}}
 
           {{#if repo.tags}}
-            <p>Tags: </p>
+            Tag(s):
             {{#each repo.tags as |tag|}}
-              <p>{{tag.name}}</p>
+              <li>{{tag.name}}</li>
             {{/each}}
+          </ul>
           {{/if}}
-
-
-
-
-
-
 
           <div class="panel-group" id="nested">
 
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
-         <a data-toggle="collapse" data-parent="#nested" href="#nested-update-{{repo.id}}">
-         update repo
-         </a>
-      </h4>
+                   <a data-toggle="collapse"
+                       data-parent="#nested" href="#nested-update-{{repo.id}}">
+                       Update repository details
+                        </a>
+                  </h4>
               </div>
               <!--/.panel-heading -->
-              <div id="nested-update-{{repo.id}}" class="panel-collapse collapse in">
+              <div id="nested-update-{{repo.id}}" class="panel-collapse collapse">
                 <div class="panel-body">
                   <fieldset>
-                    <form id="add-tag-to-repo" repoid="{{repo.id}}">
-                      <input type="text" name="tag[name]" placeholder="<tag-name>">
-                      <button type="submit" name="submit" class="btn">Add tag</button>
+                    <form id="update-repo" repoid="{{repo.id}}">
+                      <input type="text" name="updateRepo[description]" placeholder="<description>">
+                      <input type="text" name="updateRepo[full_url]" placeholder="<url>">
+                      <input type="text" name="updateRepo[tag]" placeholder="<tag-name>">
+                      <button type="submit" name="submit" class="btn">Update this repo</button>
                     </form>
                   </fieldset>
 
@@ -71,7 +69,7 @@
               <div class="panel-heading">
                 <h4 class="panel-title">
          <a class="collapsed" data-toggle="collapse" data-parent="#nested" href="#nested-remove-{{repo.id}}">
-         remove repo
+         Delete this repository
          </a>
       </h4>
               </div>
@@ -79,6 +77,7 @@
               <div id="nested-remove-{{repo.id}}" class="panel-collapse collapse">
                 <div class="panel-body">
                   Really?
+                  <button id="delete-repo" class="btn btn-default" repoid="{{repo.id}}">Okay, then!</button>
                 </div>
                 <!--/.panel-body -->
               </div>
