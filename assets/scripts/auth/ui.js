@@ -4,7 +4,6 @@ const store = require('../store.js')
 const guideUi = require('../guide/ui.js')
 
 const signUpSuccess = (response) => {
-  guideUi.toggleSignUpButton()
 }
 
 const signUpFailure = (error) => {

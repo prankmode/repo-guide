@@ -11,6 +11,11 @@ const onSignUp = function (event) {
   event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then(() => {
+      api.signIn(data)
+        .then(ui.signInSuccess)
+        .catch(ui.signInFailure)
+    })
     .catch(ui.signUpFailure)
 }
 

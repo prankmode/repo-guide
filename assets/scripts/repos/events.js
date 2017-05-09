@@ -25,9 +25,6 @@ const onShowRepos = function (event) {
 
   repoApi.getRepos()
     .then(ui.getReposSuccess)
-    .then(() => {
-      $('#delete-repo').on('click', onDeleteRepo)
-    })
     .catch(ui.getReposFailure)
 }
 
@@ -43,6 +40,11 @@ const onCreateRepo = function (event) {
 
   repoApi.createRepo(data)
     .then(ui.createReposSuccess)
+    .then(() => {
+      repoApi.getRepos()
+        .then(ui.getReposSuccess)
+        .catch(ui.getReposFailure)
+    })
     .catch(ui.createReposFailure)
 }
 
@@ -55,6 +57,11 @@ const onPopulateRepos = function (event) {
   console.log('repos:events:onPopulateRepos')
   repoApi.populateRepos()
     .then(ui.populateReposSuccess)
+    .then(() => {
+      repoApi.getRepos()
+        .then(ui.getReposSuccess)
+        .catch(ui.getReposFailure)
+    })
     .catch(ui.populateReposFailure)
 }
 
@@ -70,6 +77,11 @@ const onUpdateRepo = function (event) {
   console.log(data)
   repoApi.updateRepo(repoid, data)
     .then(ui.addTagToRepoSuccess)
+    .then(() => {
+      repoApi.getRepos()
+        .then(ui.getReposSuccess)
+        .catch(ui.getReposFailure)
+    })
     .catch(ui.addTagToRepoFailure)
 }
 

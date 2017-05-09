@@ -3,8 +3,10 @@ const repoEvents = require ('./events.js')
 
 const getReposSuccess = (data) => {
   console.log('repos:ui:getReposSuccess')
-  const showReposHtml = showReposTemplate({ repos: data.repos })
-  $('#repo-or-tag-list').html(showReposHtml)
+  if (data.repos.length > 0) {
+    const showReposHtml = showReposTemplate({ repos: data.repos })
+    $('#repo-or-tag-list').html(showReposHtml)
+  }
   // $('#create-repo').on('submit', repoEvents.onCreateRepo)
   // $('#delete-repo').on('click', repoEvents.onDeleteRepo)
 }
