@@ -23,6 +23,4 @@ $(() => {
   authEvents.addHandlers()
   repoEvents.addHandlers()
   tagEvents.addHandlers()
-  guideEvents.addHandlers()
-
 })

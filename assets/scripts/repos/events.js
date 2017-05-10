@@ -30,7 +30,10 @@ const onShowRepos = function (event) {
 
 const onCreateRepo = function (event) {
   if (!authApi.isAnyoneLoggedIn(0)) {
-    guideUi.showAlert('You must be logged in')
+    if (!authApi.isAnyoneLoggedIn(0)) {
+      guideUi.showAlert('You must be logged in')
+      return
+    }
     return
   }
   event.preventDefault()
@@ -46,6 +49,7 @@ const onCreateRepo = function (event) {
         .catch(ui.getReposFailure)
     })
     .catch(ui.createReposFailure)
+  $('#create-repo-modal').modal('toggle')
 }
 
 const onPopulateRepos = function (event) {
@@ -55,7 +59,7 @@ const onPopulateRepos = function (event) {
   }
   event.preventDefault()
   console.log('repos:events:onPopulateRepos')
-  repoApi.populateRepos()
+  repoApi.populateRepos({})
     .then(ui.populateReposSuccess)
     .then(() => {
       repoApi.getRepos()
@@ -63,6 +67,25 @@ const onPopulateRepos = function (event) {
         .catch(ui.getReposFailure)
     })
     .catch(ui.populateReposFailure)
+}
+
+const onGithubRepos = function (event) {
+  if (!authApi.isAnyoneLoggedIn(0)) {
+    guideUi.showAlert('You must be logged in')
+    return
+  }
+  event.preventDefault()
+  console.log('repos:events:onGetGithubRepos')
+  const data = getFormFields(this)
+  repoApi.populateRepos(data)
+    .then(ui.populateReposSuccess)
+    .then(() => {
+      repoApi.getRepos()
+        .then(ui.getReposSuccess)
+        .catch(ui.getReposFailure)
+    })
+    .catch(ui.populateReposFailure)
+  $('#get-github-repos-modal').modal('toggle')
 }
 
 const onUpdateRepo = function (event) {
@@ -88,6 +111,7 @@ const onUpdateRepo = function (event) {
 const addHandlers = () => {
   $('#all-repos').on('click', onShowRepos)
   $('#create-repo').on('submit', onCreateRepo)
+  $('#get-github-repos').on('submit', onGithubRepos)
   $('.repo-or-tag-list').on('click', '#delete-repo', onDeleteRepo)
   $('.repo-or-tag-list').on('submit', '#update-repo', onUpdateRepo)
   $('#populate').on('click', onPopulateRepos)
@@ -96,5 +120,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onShowRepos,
-  onCreateRepo
+  onCreateRepo,
+  onGithubRepos
 }

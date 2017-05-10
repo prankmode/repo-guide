@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Repo Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags unless you know what you are doing -->
@@ -140,7 +140,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add a repo</h4>
+            <h4 class="modal-title">Create a new tag</h4>
           </div>
           <div id="create-tag-form">
             <fieldset>
@@ -158,6 +158,29 @@
     </div>
     <!-- /.modal -->
 
+    <!--  Modal : Import repos from a github account-->
+    <div class="modal fade" id="get-github-repos-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add a set of repos from a Github account</h4>
+          </div>
+          <div id="get-github-repos-form">
+            <fieldset>
+              <form id="get-github-repos">
+                <input type="text" name="guser[name]" placeholder="<github user name>">
+                <button type="submit" name="submit" class="btn">Add repos</button>
+              </form>
+            </fieldset>
+          </div>
+          <!-- repos-from-github -form -->
+        </div>
+        <!-- modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
   <div class="container">
     <div class="jumbotron header-text">
@@ -165,7 +188,6 @@
       <p>'cause you still haven't found what you're looking for</p>
     </div>
   </div>
-
 
   <div class="container-fluid">
     <div class="row">
@@ -177,14 +199,21 @@
               <i class="glyphicon glyphicon-tags"></i> Tags</a>
           </li>
           <li>
-            <a href="#" data-toggle="modal" data-target="#create-repo-modal" id="create-repo">
+            <a href="#" data-toggle="modal"
+              data-target="#create-repo-modal" id="create-repo">
               <i class="glyphicon glyphicon-plus"></i> Add Repository</a>
           </li>
           <li>
-            <a href="#" data-toggle="modal" data-target="#create-tag-modal" id="create-tag">
+            <a href="#" data-toggle="modal" data-target="#create-tag-modal"
+              id="create-tag">
               <i class="glyphicon glyphicon-plus"></i> Add Tag</a>
           </li>
-          <li> <a href="#" id="populate"><i class="glyphicon glyphicon-plus"></i> Add GA repos</a></li>
+          <!-- <li>
+            <a href="#" id="populate">
+              <i class="glyphicon glyphicon-plus"></i> Add GA repos</a></li> -->
+          <li><a href="#"  data-toggle="modal"
+            data-target="#get-github-repos-modal" id="get-github-repos">
+            <i class="glyphicon glyphicon-plus"></i> Add Github repos</a></li>
         </ul>
       </div>
       <!-- this is the div that holds the stuff generated from handlebars -->

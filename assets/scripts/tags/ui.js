@@ -2,8 +2,10 @@ const showTagsTemplate = require('../templates/tag-list.handlebars')
 
 const getTagsSuccess = (data) => {
   console.log('tags:ui:getTagsSuccess')
-  let showTagsHtml = showTagsTemplate({ tags: data.tags })
-  $('#repo-or-tag-list').html(showTagsHtml)
+  if (data.tags.length > 0) {
+    const showTagsHtml = showTagsTemplate({ tags: data.tags })
+    $('#repo-or-tag-list').html(showTagsHtml)
+  }
 }
 
 const getTagsFailure = (response) => {

@@ -32,6 +32,7 @@ const signInFailure = (error) => {
 
 const signOutFailure = (error) => {
   console.error(error)
+
 }
 
 const signOutSuccess = (response) => {
@@ -42,6 +43,7 @@ const signOutSuccess = (response) => {
   guideUi.toggleChangePasswordButton()
   guideUi.toggleSignUpButton()
   guideUi.hideHi()
+  $('#repo-or-tag-list').html('')
 }
 
 module.exports = {

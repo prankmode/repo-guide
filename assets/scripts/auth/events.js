@@ -17,6 +17,7 @@ const onSignUp = function (event) {
         .catch(ui.signInFailure)
     })
     .catch(ui.signUpFailure)
+  $('#sign-up-modal').modal('toggle')
 }
 
 const onSignIn = function (event) {
@@ -26,6 +27,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+  $('#sign-in-modal').modal('toggle')
 }
 
 const onSignOut = function (event) {
@@ -45,6 +47,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
+  $('#change-password-modal').modal('toggle')
 }
 
 const addHandlers = () => {

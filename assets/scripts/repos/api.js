@@ -64,7 +64,8 @@ const populateRepos = (data) => {
     method: 'POST',
     headers: {
       'Authorization': 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 

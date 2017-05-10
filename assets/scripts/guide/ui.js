@@ -26,16 +26,11 @@ const hideHi = function () {
   $('#hi-there-button').toggleClass('hidden')
 }
 
-const addHandlers = () => {
-  $('#all-repos').on('click', onShowRepos)
-}
-
 const showAlert = (message) => {
   alert(message)
 }
 
 module.exports = {
-  addHandlers,
   toggleSignInButton,
   toggleSignUpButton,
   toggleSignOutButton,
