@@ -1,4 +1,5 @@
 const showTagsTemplate = require('../templates/tag-list.handlebars')
+const guideUi = require('../guide/ui.js')
 
 const getTagsSuccess = (data) => {
   if (data.tags.length > 0) {
@@ -8,31 +9,26 @@ const getTagsSuccess = (data) => {
 }
 
 const getTagsFailure = (response) => {
-}
-
-const updateTagSuccess = (response) => {
-}
-
-const updateTagFailure = (response) => {
+  guideUi.showAlert("Couldn't get the tags - whaaaat.")
 }
 
 const deleteTagSuccess = (response) => {
 }
 
 const deleteTagFailure = (response) => {
+  guideUi.showAlert("Couldn't delete tag.")
 }
 
 const createTagSuccess = (response) => {
 }
 
 const createTagFailure = (response) => {
+  guideUi.showAlert("Couldn't create tag.")
 }
 
 module.exports = {
   getTagsSuccess,
   getTagsFailure,
-  updateTagSuccess,
-  updateTagFailure,
   deleteTagSuccess,
   deleteTagFailure,
   createTagSuccess,
