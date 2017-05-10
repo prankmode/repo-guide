@@ -5,6 +5,8 @@ const getTagsSuccess = (data) => {
   if (data.tags.length > 0) {
     const showTagsHtml = showTagsTemplate({ tags: data.tags })
     $('#repo-or-tag-list').html(showTagsHtml)
+  } else {
+    $('#repo-or-tag-list').html('')
   }
 }
 

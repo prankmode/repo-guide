@@ -5,6 +5,8 @@ const getReposSuccess = (data) => {
   if (data.repos.length > 0) {
     const showReposHtml = showReposTemplate({ repos: data.repos })
     $('#repo-or-tag-list').html(showReposHtml)
+  } else {
+    $('#repo-or-tag-list').html('')
   }
   // $('#create-repo').on('submit', repoEvents.onCreateRepo)
   // $('#delete-repo').on('click', repoEvents.onDeleteRepo)
