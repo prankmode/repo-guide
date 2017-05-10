@@ -1,5 +1,5 @@
-const showReposTemplate = require('../templates/repo-list.handlebars');
-const repoEvents = require ('./events.js')
+const showReposTemplate = require('../templates/repo-list.handlebars')
+const guideUi = require('../guide/ui.js')
 
 const getReposSuccess = (data) => {
   if (data.repos.length > 0) {
@@ -17,6 +17,7 @@ const updateRepoSuccess = (response) => {
 }
 
 const updateRepoFailure = (response) => {
+  guideUi.showAlert('Could not update repo')
 
 }
 
@@ -24,21 +25,26 @@ const deleteRepoSuccess = (response) => {
 }
 
 const deleteRepoFailure = (response) => {
+  guideUi.showAlert('Could not delete repo')
 }
 
 const createRepoSuccess = (response) => {
 }
 
 const createRepoFailure = (response) => {
+  guideUi.showAlert('Could not create repo')
 }
 
 const populateReposSuccess = (response) => {
+
 }
 const populateReposFailure = (response) => {
+  guideUi.showAlert('Unable to access that Github account')
 }
 const addTagToRepoSuccess = (response) => {
 }
 const addTagToRepoFailure = (response) => {
+  guideUi.showAlert('Could not add tag to this repo')
 }
 
 
