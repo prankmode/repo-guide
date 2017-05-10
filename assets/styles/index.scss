@@ -1,8 +1,5 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-$my-blue: #3498db;
-$my-orange: #ffbb33;
-$font-color: #dfdfdf;
 $white: #fff;
 $black: #000;
 $braspberry: #300018;
@@ -96,6 +93,12 @@ form {
   min-height: 0;
 }
 
+p > a {
+  color: $olives;
+}
+p > a:hover {
+  color: $peace-and-goodwill;
+}
 
 .panel-group,
 .panel-group .panel,
@@ -113,14 +116,13 @@ form {
 }
 .panel-group .panel-heading a {
   display: block;
-  background: #668bb1;
-  color: #ffffff;
+  background: $gardens;
+  color: $white;
   padding: 15px;
   text-decoration: none;
   position: relative;
 }
 .panel-group .panel-heading a.collapsed {
-  // background: #eeeeee;
   background: $reflection;
   color: inherit;
 }
@@ -138,7 +140,7 @@ form {
   margin-top: 5px !important;
 }
 .panel-group .panel-body {
-  background: #ffffff;
+  background: $white;
   padding: 15px;
 }
 .panel-group .panel {

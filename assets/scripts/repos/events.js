@@ -11,6 +11,11 @@ const onDeleteRepo = function (event) {
 
   repoApi.deleteRepo(repoid)
     .then(ui.deleteReposSuccess)
+    .then(() => {
+      repoApi.getRepos()
+        .then(ui.getReposSuccess)
+        .catch(ui.getReposFailure)
+    })
     .catch(ui.deleteReposFailure)
 }
 
