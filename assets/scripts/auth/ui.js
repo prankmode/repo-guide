@@ -13,9 +13,7 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (response) => {
   // store the user object
-  console.log('auth:ui:signInSuccess')
   store.user = response.user
-  console.log('auth:ui:signInSuccess, store.user is ', store.user)
   guideUi.toggleSignInButton()
   guideUi.toggleChangePasswordButton()
   guideUi.toggleSignOutButton()
@@ -24,15 +22,11 @@ const signInSuccess = (response) => {
 }
 
 const signInFailure = (error) => {
-  console.log('auth:ui:signInFailure')
-  console.error(error)
   guideUi.showAlert('sign in failed')
   store.user = null
 }
 
 const signOutFailure = (error) => {
-  console.error(error)
-
 }
 
 const signOutSuccess = (response) => {

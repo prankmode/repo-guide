@@ -7,7 +7,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onDeleteRepo = function (event) {
   event.preventDefault()
-  console.log('repos:events:onDeleteRepos')
   const repoid = $(this).attr('repoid')
 
   repoApi.deleteRepo(repoid)
@@ -21,7 +20,6 @@ const onShowRepos = function (event) {
     return
   }
   event.preventDefault()
-  console.log('repos:events:onShowRepos')
 
   repoApi.getRepos()
     .then(ui.getReposSuccess)
@@ -37,9 +35,7 @@ const onCreateRepo = function (event) {
     return
   }
   event.preventDefault()
-  console.log('repos:events:onCreateRepos')
   const data = getFormFields(this)
-  console.log('repos:event:onCreateRepos, data is ', data)
 
   repoApi.createRepo(data)
     .then(ui.createReposSuccess)
@@ -58,7 +54,6 @@ const onPopulateRepos = function (event) {
     return
   }
   event.preventDefault()
-  console.log('repos:events:onPopulateRepos')
   repoApi.populateRepos({})
     .then(ui.populateReposSuccess)
     .then(() => {
@@ -75,7 +70,6 @@ const onGithubRepos = function (event) {
     return
   }
   event.preventDefault()
-  console.log('repos:events:onGetGithubRepos')
   const data = getFormFields(this)
   repoApi.populateRepos(data)
     .then(ui.populateReposSuccess)
@@ -94,10 +88,8 @@ const onUpdateRepo = function (event) {
     return
   }
   event.preventDefault()
-  console.log('repos:events:onUpdateRepo')
   const repoid = $(this).attr('repoid')
   const data = getFormFields(this)
-  console.log(data)
   repoApi.updateRepo(repoid, data)
     .then(ui.addTagToRepoSuccess)
     .then(() => {

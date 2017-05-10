@@ -7,7 +7,6 @@ const guideUi = require('../guide/ui.js')
 
 const onDeleteTag = function (event) {
   event.preventDefault()
-  console.log('tags:events:onDeleteTag')
   const tagid = $(this).attr('tagid')
 
   tagApi.deleteTag(tagid)
@@ -26,7 +25,6 @@ const onShowTags = function (event) {
     return
   }
   event.preventDefault()
-  console.log('tags:events:onShowTags')
 
   tagApi.getTags()
     .then(ui.getTagsSuccess)
@@ -39,7 +37,6 @@ const onCreateTag = function (event) {
     return
   }
   event.preventDefault()
-  console.log('tags:events:onCreateTags')
   const data = getFormFields(this)
 
   tagApi.createTag(data)

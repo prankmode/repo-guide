@@ -4,9 +4,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const getRepos = () => {
-  // debug
-  console.log('repo:api:getRepos:')
-
   return $.ajax({
     url: config.apiOrigin + '/repos',
     method: 'GET',
@@ -17,9 +14,6 @@ const getRepos = () => {
 }
 
 const getOneRepo = () => {
-  // debug
-  console.log('repo:api:getOneRepo:')
-
   return $.ajax({
     url: config.apiOrigin + '/repos',
     method: 'GET',
@@ -30,9 +24,6 @@ const getOneRepo = () => {
 }
 
 const deleteRepo = (repoid) => {
-  // debug
-  console.log('repo:api:deleteRepo:')
-
   return $.ajax({
     url: config.apiOrigin + '/repos/' + repoid,
     method: 'DELETE',
@@ -43,10 +34,6 @@ const deleteRepo = (repoid) => {
 }
 
 const createRepo = (data) => {
-  // debug
-  console.log('repo:api:createRepo: data is ', data)
-  console.log('token is ', store.user)
-
   return $.ajax({
     url: config.apiOrigin + '/repos',
     method: 'POST',
@@ -58,7 +45,6 @@ const createRepo = (data) => {
 }
 
 const populateRepos = (data) => {
-  console.log('repo:api:populateRepos')
   return $.ajax({
     url: config.apiOrigin + '/repos/populate',
     method: 'POST',
@@ -70,8 +56,6 @@ const populateRepos = (data) => {
 }
 
 const updateRepo = (repoid, data) => {
-  // debug
-  console.log('repo:api:updateRepo:')
   return $.ajax({
     url: config.apiOrigin + '/repos/' + repoid,
     method: 'PATCH',
