@@ -23,4 +23,7 @@ $(() => {
   authEvents.addHandlers()
   repoEvents.addHandlers()
   tagEvents.addHandlers()
+  // the following makes sure there is no "flash" of unstyled stuff when
+  // page is loaded.  see the <hea> of index.html
+  $('.no-fouc').removeClass('no-fouc');
 })

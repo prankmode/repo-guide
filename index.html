@@ -8,14 +8,23 @@
   <!-- Do not add `link` tags unless you know what you are doing -->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
+
   <!-- Do not add `script` tags unless you know what you are doing -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <style type="text/css">
+      .no-fouc {display: none;}
+  </style>
+  <!--  get rid of FOUC (flash of unstyled content) -->
+  <script type="text/javascript">
+      document.documentElement.className = 'no-fouc';
+      // add to document ready: $('.no-fouc').removeClass('no-fouc');
+  </script>
 </head>
 
 
 <body class="container-fluid">
-
+<div id="fouc">
   <div class="navbar">
     <div class="btn-group">
       <h3>Repo Guide</h3>
@@ -223,6 +232,10 @@
       </div>
     </div>
   </div>
+</div>
+<script type="text/javascript">
+document.getElementById("fouc").style.display="block";
+</script>
 
 </body>
 
